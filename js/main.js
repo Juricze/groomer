@@ -68,4 +68,32 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
+    // Tlačítko pro rozbalení galerie
+    const toggleGalleryBtn = document.getElementById('toggleGalleryBtn');
+    const extendedGallery = document.getElementById('extended-gallery');
+
+    function updateGalleryButtonState() {
+        if (extendedGallery.style.display === 'none' || extendedGallery.style.display === '') {
+            toggleGalleryBtn.innerHTML = 'Zobrazit více <i class="fas fa-chevron-down ms-2"></i>';
+        } else {
+            toggleGalleryBtn.innerHTML = 'Skrýt <i class="fas fa-chevron-up ms-2"></i>';
+        }
+    }
+
+    if (toggleGalleryBtn && extendedGallery) {
+        // Initial state update
+        updateGalleryButtonState(); // Call this on load to ensure button matches initial gallery state
+
+        toggleGalleryBtn.addEventListener('click', function() {
+            const isHidden = extendedGallery.style.display === 'none' || extendedGallery.style.display === '';
+            
+            if (isHidden) {
+                extendedGallery.style.display = 'flex';
+            } else {
+                extendedGallery.style.display = 'none';
+            }
+            updateGalleryButtonState(); // Update button after toggling gallery
+        });
+    }
+
 });
