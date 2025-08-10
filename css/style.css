@@ -184,8 +184,8 @@ section.bg-light {
 
 /* --- O nás --- */
 #about img {
-    border: 5px solid var(--gold-color);
-    box-shadow: 0 10px 30px rgba(191, 155, 48, 0.2);
+    object-fit: cover;
+    aspect-ratio: 4 / 3;
 }
 
 
@@ -262,5 +262,33 @@ footer.bg-dark {
     }
     .section-title {
         font-size: 2.2rem;
+    }
+}
+
+/* --- Scroll Down Arrow --- */
+.scroll-down-arrow {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: var(--light-text);
+    font-size: 2rem;
+    animation: bounce 2s infinite;
+    z-index: 2; /* Ensure it's above the overlay */
+}
+
+.scroll-down-arrow i {
+    display: block; /* To allow vertical alignment */
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-15px);
+    }
+    60% {
+        transform: translateY(-7px);
     }
 }

@@ -49,4 +49,23 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
+    // Smooth scroll for the scroll-down arrow
+    const scrollDownArrow = document.querySelector('.scroll-down-arrow');
+    if (scrollDownArrow) {
+        scrollDownArrow.addEventListener('click', function (e) {
+            e.preventDefault();
+            const targetElement = document.querySelector('#services'); // Target the Services section
+            if (targetElement) {
+                const navbarHeight = navbar.offsetHeight; // Reuse existing navbarHeight
+                const elementPosition = targetElement.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.pageYOffset - navbarHeight;
+
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: "smooth"
+                });
+            }
+        });
+    }
+
 });
